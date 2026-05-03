@@ -3,7 +3,7 @@ package main
 type Command struct {
 	Name        string
 	Description string
-	Handler     func(args []string, commands map[string]Command)
+	Handler     func(args []string, commands map[string]Command) error
 }
 
 func getCommands() map[string]Command {
@@ -12,6 +12,11 @@ func getCommands() map[string]Command {
 			Name:        "help",
 			Description: "Show help",
 			Handler:     commandHelp,
+		},
+		"add": {
+			Name:        "add",
+			Description: "add a new task",
+			Handler:     commandAdd,
 		},
 	}
 }
