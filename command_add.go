@@ -23,7 +23,7 @@ func commandAdd(args []string, commands map[string]Command) error {
 	newTask := Task{
 		ID:          len(tasks) + 1,
 		Description: strings.Join(args, " "),
-		Status:      false,
+		Status:      "todo",
 		CreatedAt:   time.Now(),
 		UpdatedAt:   time.Now(),
 	}
@@ -33,6 +33,8 @@ func commandAdd(args []string, commands map[string]Command) error {
 	if err = saveTasks(tasks); err != nil {
 		return err
 	}
+
+	fmt.Printf("Task added successfully (ID: %d)\n", newTask.ID)
 
 	return nil
 }

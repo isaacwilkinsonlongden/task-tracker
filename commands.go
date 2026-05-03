@@ -15,8 +15,13 @@ func getCommands() map[string]Command {
 		},
 		"add": {
 			Name:        "add",
-			Description: "add a new task",
+			Description: "Add a new task",
 			Handler:     commandAdd,
+		},
+		"update": {
+			Name:        "update",
+			Description: "Update a tasks description",
+			Handler:     commandUpdate,
 		},
 	}
 }
