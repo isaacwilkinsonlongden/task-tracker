@@ -20,8 +20,18 @@ func getCommands() map[string]Command {
 		},
 		"update": {
 			Name:        "update",
-			Description: "Update a tasks description",
+			Description: "Update a tasks description by ID",
 			Handler:     commandUpdate,
+		},
+		"delete": {
+			Name:        "delete",
+			Description: "Delete a task by ID",
+			Handler:     commandDelete,
+		},
+		"mark-in-progress": {
+			Name:        "mark-in-progress",
+			Description: "Update task progress by ID",
+			Handler:     commandMarkInProgress,
 		},
 	}
 }
