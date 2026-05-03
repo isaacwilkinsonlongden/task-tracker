@@ -33,5 +33,10 @@ func getCommands() map[string]Command {
 			Description: "Update task progress by ID",
 			Handler:     commandMarkInProgress,
 		},
+		"mark-done": {
+			Name:        "mark-done",
+			Description: "Update task progress by ID",
+			Handler:     commandMarkDone,
+		},
 	}
 }
