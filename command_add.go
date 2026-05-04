@@ -20,8 +20,16 @@ func commandAdd(args []string, commands map[string]Command) error {
 		return err
 	}
 
+	maxID := 0
+
+	for _, task := range tasks {
+		if task.ID > maxID {
+			maxID = task.ID
+		}
+	}
+
 	newTask := Task{
-		ID:          len(tasks) + 1,
+		ID:          maxID + 1,
 		Description: strings.Join(args, " "),
 		Status:      "todo",
 		CreatedAt:   time.Now(),

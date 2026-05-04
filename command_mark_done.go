@@ -3,11 +3,12 @@ package main
 import (
 	"fmt"
 	"strconv"
+	"time"
 )
 
 func commandMarkDone(args []string, commands map[string]Command) error {
 	if len(args) == 0 {
-		return fmt.Errorf("usage: task-cli mark-in-progress <task ID>")
+		return fmt.Errorf("usage: task-cli mark-done <task ID>")
 	}
 
 	if err := ensureFileExists(); err != nil {
@@ -29,6 +30,7 @@ func commandMarkDone(args []string, commands map[string]Command) error {
 	for i := range tasks {
 		if tasks[i].ID == target {
 			tasks[i].Status = "done"
+			tasks[i].UpdatedAt = time.Now()
 			found = true
 			break
 		}

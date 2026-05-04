@@ -24,7 +24,9 @@ func ensureFileExists() error {
 		}
 		defer file.Close()
 
-		file.Write([]byte("[]"))
+		if _, err := file.Write([]byte("[]")); err != nil {
+			return err
+		}
 	}
 
 	return nil

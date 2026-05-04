@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func commandUpdate(args []string, commands map[string]Command) error {
@@ -30,6 +31,7 @@ func commandUpdate(args []string, commands map[string]Command) error {
 	for i := range tasks {
 		if tasks[i].ID == target {
 			tasks[i].Description = strings.Join(args[1:], " ")
+			tasks[i].UpdatedAt = time.Now()
 			found = true
 			break
 		}

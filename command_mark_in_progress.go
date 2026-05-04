@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strconv"
+	"time"
 )
 
 func commandMarkInProgress(args []string, commands map[string]Command) error {
@@ -29,6 +30,7 @@ func commandMarkInProgress(args []string, commands map[string]Command) error {
 	for i := range tasks {
 		if tasks[i].ID == target {
 			tasks[i].Status = "in-progress"
+			tasks[i].UpdatedAt = time.Now()
 			found = true
 			break
 		}
